@@ -7,8 +7,15 @@ app.controller('NewOppCtrl', function($scope, OppService){
 	$scope.addOpp = function(){
 		OppService.addOpp($scope.newOpp)
 		.then(function(){
-			$scope.//left off here, need to create a getOpp function, then create functions for each on the service
+			$scope.getOpp();
 		})
-	}
+	};
+
+	$scope.getOpp = function(){
+		OppService.getOpp()
+		.then(function(data){
+			$scope.opps = data.opps
+		})
+	};
 
 })
