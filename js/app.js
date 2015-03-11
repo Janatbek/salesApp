@@ -5,6 +5,11 @@ app.config(function($routeProvider){
 	$routeProvider
 		.when('/', {
 			templateUrl: 'js/NewOpp/newOpp.html',
-			controller: 'newOppCtrl'
+			controller: 'NewOppCtrl',
+			resolve: {
+				oppsArray: function(OppService){
+					return OppService.getOpps()
+				}
+			}
 		})
 })

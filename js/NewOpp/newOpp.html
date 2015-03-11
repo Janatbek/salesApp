@@ -1,11 +1,20 @@
-<div>Creat Opportunity
-    <form>
+<div>Create Opportunity
+    <form ng-submit="addOpp()">
         <input placeholder="Account UserID" ng-model="newOpp.userid">
         <br>
         <input placeholder="Contract" ng-model="newOpp.contract">
         <br>
         <input placeholder="P1, P2 or P3" ng-model="newOpp.priority">
         <br>
-        <button ng-click="addOpp()" ng-Keypress="">Add Opportunity</button>
+        <button type="submit">Add Opportunity</button>
     </form>
+    <div ng-repeat="item in oppsArray | orderBy: ['priority', '-interactionScore']">
+    	{{item.userid}}<br>
+    	{{item.contract}}<br>
+    	{{item.priority}}<br>
+    	<button ng-click="removeOpp(item)">Delete</button><br>
+    	<button ng-click="plus(item)">+</button>
+    	{{item.interactionScore}}
+    	<button ng-click="minus(item)">-</button>
+    </div>
 </div>

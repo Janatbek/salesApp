@@ -1,28 +1,12 @@
+
 var app = angular.module('oppApp');
 
-app.servicer('OppService', function(){
 
-	this.addOpp = function(opp){
-		var deferred = $q.defer();
-		$http({
-			method: 'POST',
-			url: 'https://rockys-app.firebaseio.com/',
-			data: opp
-		}).then(function(data){
-			deferred.resolve(data)
-		})
-		return deferred.promise
-	}
+app.service('OppService', function($firebaseArray){
+	var firebaseUrl = 'https://rockys-app.firebaseio.com/'
 
-	this.getOpp = function(opps){
-		var deferred = $q.defer();
-		$http({
-			method: 'GET',
-			url: 'https://rockys-app.firebaseio.com/'
-		}).then(function(response){
-			deferred.resolve(response)
-		})
-		return deferred.promise
+	this.getOpps = function(){
+		return $firebaseArray(new Firebase(firebaseUrl + 'opps'))
 	}
 
 })

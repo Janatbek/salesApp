@@ -1,21 +1,33 @@
-var app = angular.module('salesApp')
+var app = angular.module('oppApp')
 
-app.controller('NewOppCtrl', function($scope, OppService){
-	
-	$scope.newOpp = {};
+app.controller('NewOppCtrl', function($scope, OppService, oppsArray){
+
+	$scope.oppsArray = oppsArray
 
 	$scope.addOpp = function(){
-		OppService.addOpp($scope.newOpp)
-		.then(function(){
-			$scope.getOpp();
-		})
+		$scope.newOpp.interactionScore = 0
+		$scope.oppsArray.$add($scope.newOpp)
+		$scope.newOpp = {};
 	};
 
-	$scope.getOpp = function(){
-		OppService.getOpp()
-		.then(function(data){
-			$scope.opps = data.opps
-		})
+	$scope.removeOpp = function(item){
+		$scope.oppsArray.$remove(item)
+	};
+
+	$scope.plus = function(item){
+		if(!item.interactionScore){
+			item.interactionScore = 0
+		}
+		item.interactionScore ++
+		$scope.oppsArray.$save(item)
+	};
+
+	$scope.minus = function(item){
+		if(!item.interactionScore){
+			item.interactionScore = 0
+		}
+		item.interactionScore --
+		$scope.oppsArray.$save(item)
 	};
 
 })
