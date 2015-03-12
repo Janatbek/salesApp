@@ -1,20 +1,33 @@
-<div>Create Opportunity
-    <form ng-submit="addOpp()">
-        <input placeholder="Account UserID" ng-model="newOpp.userid">
+<div>
+    <form ng-submit="addOpp()" class="createOpp">
+    <div class="formInput">
+		<input placeholder="Account UserID" ng-model="newOpp.userid">
         <br>
         <input placeholder="Contract" ng-model="newOpp.contract">
         <br>
         <input placeholder="P1, P2 or P3" ng-model="newOpp.priority">
         <br>
-        <button type="submit">Add Opportunity</button>
+        <button type="submit">Submit</button>
+    </div>
     </form>
-    <div ng-repeat="item in oppsArray | orderBy: ['priority', '-interactionScore']">
-    	{{item.userid}}<br>
-    	{{item.contract}}<br>
-    	{{item.priority}}<br>
-    	<button ng-click="removeOpp(item)">Delete</button><br>
-    	<button ng-click="plus(item)">+</button>
-    	{{item.interactionScore}}
-    	<button ng-click="minus(item)">-</button>
+    <div class="oppContainer">
+        <md-content>
+            <md-list>
+                <md-item  ng-repeat="item in oppsArray | orderBy: ['priority', '-interactionScore']">
+                    <md-item-content>
+                        <div class="md-tile-content">
+                            <h3>{{item.userid}}</h3>
+            				<h3>{{item.contract}}</h3>
+            				<h3>{{item.priority}}</h3>
+            				<button ng-click="removeOpp(item)">Remove</button><br>
+    						<button ng-click="plus(item)">+</button>
+    						{{item.interactionScore}}
+    						<button ng-click="minus(item)">-</button>
+        		 		 </div>
+       			 	</md-item-content>
+       			 <md-divider ng-if="!$last"></md-divider>
+      			</md-item>
+   			 </md-list>
+  		</md-content>
     </div>
 </div>

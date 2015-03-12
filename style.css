@@ -1,5 +1,45 @@
 html, body{
+	width: 100%;
+	margin: 0px;
+	padding: 0px;
+}
 
+.background{
+	background-color: #D6E8FF;
+}
 
-	
+.header{
+	height: 35px;
+	width: 100%;
+	background-color: #013E8E;
+	font-size: 24pt;
+	font-family: Calibri;
+	color: #A0A7B1;
+	text-align: left;
+	position: fixed;
+	z-index: 1;
+	top: 0;
+}
+
+.createOpp{
+	height: 150px;
+	width: 90%;
+	text-align: center;
+	margin: 39px auto 0 auto;
+	margin-bottom: 4px;
+	background-color: #424242;
+	border-radius: 20px;
+}
+
+.formInput{
+	padding-top: 25px;
+}
+
+.oppContainer{
+	width: 90%;
+	background-color: #97A6BA;
+	margin: auto;
+	text-align: center;
+	z-index: -1;
+	border-radius: 20px;
 }
