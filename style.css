@@ -9,14 +9,14 @@ html, body{
 }
 
 .header{
-	height: 35px;
+	height: 39px;
 	width: 100%;
 	background-color: #013E8E;
 	font-size: 24pt;
 	font-family: Calibri;
 	color: #A0A7B1;
 	text-align: left;
-	position: fixed;
+	position: absolute;
 	z-index: 1;
 	top: 0;
 }
@@ -32,7 +32,8 @@ html, body{
 }
 
 .formInput{
-	padding-top: 25px;
+	margin-top: 39px;
+	padding-bottom: 20px;
 }
 
 .oppContainer{
@@ -42,4 +43,14 @@ html, body{
 	text-align: center;
 	z-index: -1;
 	border-radius: 20px;
+}
+
+.button{
+	margin: 2px 2px;
+}
+
+h2 {
+	margin: 0;
+	padding-top: 8px;
+	padding-bottom: 5px;
 }

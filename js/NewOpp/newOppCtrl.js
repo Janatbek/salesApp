@@ -2,6 +2,9 @@ var app = angular.module('oppApp')
 
 app.controller('NewOppCtrl', function($scope, OppService, oppsArray){
 
+	$scope.showData = true;
+	$scope.showInput = false;
+
 	$scope.oppsArray = oppsArray
 
 	$scope.addOpp = function(){
@@ -29,5 +32,10 @@ app.controller('NewOppCtrl', function($scope, OppService, oppsArray){
 		item.interactionScore --
 		$scope.oppsArray.$save(item)
 	};
+
+	$scope.edit = function(){
+		$scope.showData = !$scope.showData;
+		$scope.showInput = !$scope.showInput;
+	}
 
 })
