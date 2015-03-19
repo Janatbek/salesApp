@@ -33,9 +33,8 @@ app.controller('NewOppCtrl', function($scope, OppService, oppsArray){
 		$scope.oppsArray.$save(item)
 	};
 
-	$scope.edit = function(){
-		$scope.showData = !$scope.showData;
-		$scope.showInput = !$scope.showInput;
+	$scope.saveData = function(item){
+		$scope.oppsArray.$save(item)
 	}
 
 })
